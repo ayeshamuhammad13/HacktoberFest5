@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selection Sort Example</title>
+</head>
+<body>
+    <h1>Selection Sort Example</h1>
+
+    <p>Unsorted Array: 5, 1, 4, 2, 8</p>
+
+    <button onclick="selectionSort()">Sort Array</button>
+
+    <p>Sorted Array: <span id="sortedArray"></span></p>
+
+    <script>
+        function selectionSort() {
+            let array = [5, 1, 4, 2, 8];
+            let n = array.length;
+
+            for (let i = 0; i < n - 1; i++) {
+                let minIndex = i;
+
+                for (let j = i + 1; j < n; j++) {
+                    if (array[j] < array[minIndex]) {
+                        minIndex = j;
+                    }
+                }
+
+                // Swap array[i] and array[minIndex]
+                let temp = array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
+            }
+
+            document.getElementById("sortedArray").innerText = array.join(', ');
+        }
+    </script>
+</body>
+</html>
